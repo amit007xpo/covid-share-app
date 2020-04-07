@@ -1,0 +1,20 @@
+$block: "psa-single-video-share";
+
+.#{$block} {
+  background-color: #1e1e2f;
+  display: flex;
+  justify-content: space-around;
+  // height: 100vh;
+  padding-top: 1rem;
+  text-align: center;
+  width: 100%;
+}
+
+.#{$block}__loader-div {
+  background-color: #1e1e2f;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100vh;
+  text-align: center;
+}

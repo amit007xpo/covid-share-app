@@ -1,0 +1,58 @@
+$block: "psa-navigation-bar";
+
+.#{$block} {
+  position: sticky;
+  top: 0;
+  max-width: 100%;
+}
+.#{$block}__nav-ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  max-width: 100%;
+}
+
+.#{$block}__nav-ul > li {
+  float: left;
+}
+
+.#{$block}__nav-ul > li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.#{$block}__nav-ul > li a:hover {
+  background-color: #111;
+}
+
+.#{$block}__nav-ul > li:last-child {
+  float: right;
+}
+
+.#{$block}__back-button {
+  cursor: pointer;
+}
+
+.#{$block}__user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.#{$block}__avatar-span {
+  width: 30px;
+  & > img {
+    width: 100%;
+    border-radius: 50%;
+  }
+}
+
+.#{$block}__username {
+  margin: 0 10px;
+  color: white;
+}
