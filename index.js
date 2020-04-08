@@ -19,6 +19,10 @@ app.get('/', function (req, res) {
     res.render(__dirname+ '/view/components/LandingPage/index', { name: 'John' });
   });
 
+  app.get('/ping', function (req, res) {
+    res.send('working');
+  });
+
   app.get('/:userId/videos/:videoId', function (req, res) {
       // console.log(req.params)
     db.collection("users")
