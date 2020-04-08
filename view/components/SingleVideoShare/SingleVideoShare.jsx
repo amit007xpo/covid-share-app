@@ -74,7 +74,7 @@ class SingleVideoShare extends React.Component {
     const { video, fullUrl } = this.props;
     // console.log(video);
     
-    if (Object.keys(video).length === 0) {
+    if (video ===undefined || Object.keys(video).length === 0) {
       // TODO : User might have no videos, to be fixed
       return (
         <div className={`${baseClassName}__loader-div`}>

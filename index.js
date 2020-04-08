@@ -29,9 +29,11 @@ app.get('/', function (req, res) {
     .doc(req.params.userId)
     .collection("videos")
     .doc(req.params.videoId).onSnapshot(function(snapshot) {
+      
         res.render(__dirname+ '/view/components/SingleVideoShare/index', { video: snapshot.data(), fullUrl: (req.protocol + '://' + req.get('host') + req.originalUrl) });
       }, function (errorObject) {
         console.log("The read failed: " + errorObject.code);
+        res.render(__dirname+ '/view/components/SingleVideoShare/index', { video: {}, fullUrl: (req.protocol + '://' + req.get('host') + req.originalUrl) });
       });
   });
 
@@ -62,6 +64,6 @@ app.get('/', function (req, res) {
 
 
 
-app.listen(7080, function () {
-    console.log('Example app listening on port 7080 !');
+app.listen(8080, function () {
+    console.log('Example app listening on port 8080 !');
 });
