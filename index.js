@@ -20,9 +20,9 @@ app.get('/', function (req, res) {
   });
 
   app.get('/:userId/videos/:videoId', function (req, res) {
-      console.log(req.params)
-    db.collection(req.params.userId)
-    .doc('rSww6nE97wYM7iUZZSKL315zlZf1')
+      // console.log(req.params)
+    db.collection("users")
+    .doc(req.params.userId)
     .collection("videos")
     .doc(req.params.videoId).onSnapshot(function(snapshot) {
         res.render(__dirname+ '/view/components/SingleVideoShare/index', { video: snapshot.data(), fullUrl: (req.protocol + '://' + req.get('host') + req.originalUrl) });
