@@ -104,20 +104,38 @@ body{
 .psa-video-card__download {
   margin-top: 1rem;
 }
-
+.psa-video-card__video-title {
+  text-align: center;
+  color:white;
+  font-size: 1.3rem;
+}
 .psa-video-card__share {
+  display: flex;
+  justify-content: center;
   margin-top: 1rem;
   width: 100%;
 }
 
+.psa-video-card__video-div {
+  color: white;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
 .psa-video-card__date {
   color: white;
+  display: flex;
+  font-size: 20px;
+  justify-content: center;
 }
 
 .psa-video-card__download-button {
   background-color: transparent;
   border: none;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
   outline: none;
 }
 

@@ -71,7 +71,7 @@ class SingleVideoShare extends React.Component {
     const baseClassName = "psa-single-video-share";
   
     // const { isLoading, video } = this.state;
-    const { video, fullUrl } = this.props;
+    const { video, fullUrl, urlDownLoad } = this.props;
     // console.log(video);
     
     if (video ===undefined || Object.keys(video).length === 0) {
@@ -94,6 +94,7 @@ class SingleVideoShare extends React.Component {
          outputVideoId={video.outputVideoId}
          videoId={video.videoId}
          fullUrl={fullUrl}
+         urlDownLoad={urlDownLoad}
          />
         </div>
       </div>
