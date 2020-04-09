@@ -15,7 +15,7 @@ function DefaultLayout(props) {
             <link rel="canonical" href={fullUrl} />
 
             <meta property="og:url" content={fullUrl} />
-            <meta property="og:type" content="video" />
+            <meta property="og:type" content="video.movie" />
             <meta property="og:title" content={video.psaName} />
             <meta property="og:description" content="Help to spread awareness for covid-19" />
             {/* <meta property="og:image" content="https://homepages.cae.wisc.edu/~ece533/images/airplane.png" /> */}
