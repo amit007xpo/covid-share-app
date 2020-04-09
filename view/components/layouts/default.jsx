@@ -27,9 +27,13 @@ function DefaultLayout(props) {
             <meta property="twitter:type" content="video" />
             <meta name="twitter:title" content={video.psaName} />
             <meta name="twitter:description" content="Help to spread awareness for covid-19" />
-            {/* <meta name="twitter:image" content="https://homepages.cae.wisc.edu/~ece533/images/airplane.png" /> */}
-            <meta property="twitter:video" content={video.outputUrl} />
-            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:image" content="https://homepages.cae.wisc.edu/~ece533/images/airplane.png" />
+            {/* <meta property="twitter:video" content={video.outputUrl} /> */}
+
+            <meta name="twitter:card" content={video.psaName} />
+            <meta name="twitter:site" content="Covid-19@share" />
+            <meta name="twitter:creator" content="user-name" />
+            <meta property="og:image" content="https://homepages.cae.wisc.edu/~ece533/images/airplane.png" />
         <link rel="stylesheet" type="text/css" href="/public/css/style.css" />
         <script>
           console.log('hi')

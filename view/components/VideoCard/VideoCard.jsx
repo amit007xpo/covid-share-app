@@ -1,7 +1,12 @@
 var React = require("react");
-
 import Moment from 'react-moment'
 import {
+  FacebookShareButton,
+  LinkedinShareButton,
+  TwitterShareButton,
+  TelegramShareButton,
+  WhatsappShareButton,
+  EmailShareButton,
   FacebookIcon,
   LinkedinIcon,
   TwitterIcon,
