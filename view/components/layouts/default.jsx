@@ -34,7 +34,7 @@ function DefaultLayout(props) {
             <meta name="twitter:card" content={video.psaName} />
             <meta name="twitter:site" content="Covid-19@share" />
             <meta name="twitter:creator" content="user-name" />
-            <meta property="og:image" content="https://homepages.cae.wisc.edu/~ece533/images/airplane.png" />
+            {/* <meta property="og:image" content="https://homepages.cae.wisc.edu/~ece533/images/airplane.png" /> */}
         <link rel="stylesheet" type="text/css" href="/public/css/style.css" />
         <script>
           console.log('hi')
