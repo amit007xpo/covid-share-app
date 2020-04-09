@@ -20,11 +20,12 @@ function DefaultLayout(props) {
             <meta property="og:description" content="Help to spread awareness for covid-19" />
             {/* <meta property="og:image" content="https://homepages.cae.wisc.edu/~ece533/images/airplane.png" /> */}
             <meta property="og:video" content={video.outputUrl} />
+            <meta property="og:video:secure_url" content={video.outputUrl} />
             <meta property="og:video:type" content="video/mp4" />
-            <meta property="og:video:width" content="300px" />
-            <meta property="og:video:width" content="300px" />
+            <meta property="og:video:width" content="400" />
+            <meta property="og:video:height" content="300" />
             
-            <meta property="twitter:type" content="video" />
+            <meta property="twitter:type" content="video.movie" />
             <meta name="twitter:title" content={video.psaName} />
             <meta name="twitter:description" content="Help to spread awareness for covid-19" />
             <meta name="twitter:image" content="https://homepages.cae.wisc.edu/~ece533/images/airplane.png" />
