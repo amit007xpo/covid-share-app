@@ -1,10 +1,4 @@
 var React = require("react");
-var axios = require('axios');
-const https = require('https');
-const fs = require('fs');
-const Blob = require("cross-blob");
-const jsdom = require("jsdom");
-const { JSDOM } = jsdom;
 
 import Moment from 'react-moment'
 import {

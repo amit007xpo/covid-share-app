@@ -1,6 +1,5 @@
 var React = require("react");
 // var { getVideo } = require("../../helpers/db");
-var axios = require('axios')
 // var Loader from "react-loader-spinner";
 
 var VideoCard = require("../VideoCard");
