@@ -18,7 +18,7 @@ function DefaultLayout(props) {
             <meta property="og:type" content="video.movie" />
             <meta property="og:title" content={video.psaName} />
             <meta property="og:description" content="Help to spread awareness for covid-19" />
-            <meta property="og:image" content={video.outputUrl} />
+            {/* <meta property="og:image" content="https://homepages.cae.wisc.edu/~ece533/images/airplane.png" /> */}
             <meta property="og:video" content={video.outputUrl} />
             <meta property="og:video:url" content={video.outputUrl} />
             <meta property="og:video:secure_url" content={video.outputUrl} />
@@ -29,13 +29,15 @@ function DefaultLayout(props) {
             <meta property="twitter:type" content="video.movie" />
             <meta name="twitter:title" content={video.psaName} />
             <meta name="twitter:description" content="Help to spread awareness for covid-19" />
-            {/* <meta name="twitter:image" content="https://images.unsplash.com/photo-1585411241865-a7762556ce2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=751&q=80" /> */}
+            <meta name="twitter:image" content="https://images.unsplash.com/photo-1585411241865-a7762556ce2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=751&q=80" />
             {/* <meta property="twitter:video" content={video.outputUrl} /> */}
             <meta name="twitter:player" content={video.outputUrl} />
-            <meta name="twitter:card" content="Help to spread awareness for covid-1" />
-            <meta name="twitter:site" content="Covid-19@share" />
+            <meta name="twitter:card" content={video.outputUrl} />
+            <meta name="twitter:player:width" content="400" />
+            <meta name="twitter:player:height" content="300" />
+            <meta name="twitter:site" content="@share" />
             <meta name="twitter:creator" content="user-name" />
-            {/* <meta property="og:image" content="https://images.unsplash.com/photo-1585411241865-a7762556ce2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=751&q=80" /> */}
+            <meta property="og:image" content="https://images.unsplash.com/photo-1585411241865-a7762556ce2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=751&q=80" />
         <link rel="stylesheet" type="text/css" href="/public/css/style.css" />
         <script>
           console.log('hi')
