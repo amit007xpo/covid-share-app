@@ -28,12 +28,12 @@ function DefaultLayout(props) {
             
             <meta property="twitter:type" content="video.movie" />
             <meta name="twitter:title" content={video.psaName} />
-            <meta name="twitter:description" content="summary" />
+            <meta name="twitter:description" content="Help to spread awareness for covid-19" />
             <meta name="twitter:image" content="https://images.unsplash.com/photo-1585411241865-a7762556ce2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=751&q=80" />
             <meta name="twitter:image:src" content="https://images.unsplash.com/photo-1585411241865-a7762556ce2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=751&q=80" />
             {/* <meta property="twitter:video" content={video.outputUrl} /> */}
             <meta name="twitter:player" content={video.outputUrl} />
-            <meta name="twitter:card" content="awareness for covid-19" />
+            <meta name="twitter:card" content="summary" />
             <meta name="twitter:player:width" content="400" />
             <meta name="twitter:player:height" content="300" />
             <meta name="twitter:site" content="@share" />
