@@ -40,9 +40,6 @@ function DefaultLayout(props) {
             <meta name="twitter:creator" content="user-name" />
             <meta property="og:image" content="https://images.unsplash.com/photo-1585411241865-a7762556ce2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=751&q=80" />
         <link rel="stylesheet" type="text/css" href="/public/css/style.css" />
-        <script>
-          console.log('hi')
-        </script>
       </head>
       <body>{props.children}</body>
     </html>

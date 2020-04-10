@@ -5,10 +5,21 @@ var {db} = require('./config/services/firebase');
 const request = require('request');
 const mime = require('mime-types');
 
-
+const options = {
+  "doctype": "<!DOCTYPE html>",
+  "beautify": false,
+  "transformViews": true,
+  "babel": {
+            presets: ['@babel/preset-react', [ '@babel/preset-env', {'targets': {'node': 'current'}}]],
+            plugins: [
+                [
+                  "@babel/plugin-proposal-class-properties"
+                ]]
+              }
+}
 app.set('views', __dirname + '/view');
 app.set('view engine', 'jsx');
-app.engine('jsx', require('express-react-views').createEngine());
+app.engine('jsx', require('express-react-views').createEngine(options));
 
 app.use('/public',express.static(__dirname+'/public'));
 
@@ -18,7 +29,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 app.get('/', function (req, res) {
-    res.render(__dirname+ '/view/components/LandingPage/index', { name: 'John' });
+    res.render(__dirname+ '/view/components/Html', { name: 'John', data: {name: 'amit'} });
   });
 
   app.get('/ping', function (req, res) {
@@ -30,7 +41,7 @@ app.get('/', function (req, res) {
     .doc(req.params.userId)
     .collection("videos")
     .doc(req.params.videoId).onSnapshot(function(snapshot) {
-      console.log(snapshot.data())
+      // console.log(snapshot.data())
           const data = snapshot.data();
           global.videoUrl = snapshot.data().outputUrl;
           global.fileName = snapshot.data().outputVideoId;

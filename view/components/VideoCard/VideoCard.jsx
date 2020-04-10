@@ -56,9 +56,8 @@ class VideoCard extends React.Component {
                       </a>
                   </li>
                   <li>
-                      <a className="digg" href={`${"https://web.whatsapp.com/send?text="+ fullUrl}`} target="_blank" rel="nofollow">
-                        <WhatsappIcon size="30" round={true} />
-                      </a>
+                      <a className={`${baseClassName}__whatsapp--web`} href={`${"https://web.whatsapp.com/send?text="+ fullUrl}`} target="_blank" rel="nofollow"> <WhatsappIcon size="30" round={true} /></a>
+                      <a className={`${baseClassName}__whatsapp--mobile`} href={`${"https://api.whatsapp.com/send?text="+ fullUrl}`} target="_blank" rel="nofollow"> <WhatsappIcon size="30" round={true} /></a>
                   </li>
                   <li>
                       <a className="telegram" href={`${"https://telegram.me/share/url?url="+ fullUrl}`} target="_blank" rel="nofollow">
