@@ -33,7 +33,7 @@ function DefaultLayout(props) {
             <meta name="twitter:image:src" content="https://images.unsplash.com/photo-1585411241865-a7762556ce2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=751&q=80" />
             {/* <meta property="twitter:video" content={video.outputUrl} /> */}
             <meta name="twitter:player" content={video.outputUrl} />
-            <meta name="twitter:card" content="summary" />
+            <meta name="twitter:card" content="player" />
             <meta name="twitter:player:width" content="400" />
             <meta name="twitter:player:height" content="300" />
             <meta name="twitter:site" content="@share" />

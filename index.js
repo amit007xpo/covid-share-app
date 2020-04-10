@@ -41,7 +41,7 @@ app.get('/', function (req, res) {
     .doc(req.params.userId)
     .collection("videos")
     .doc(req.params.videoId).onSnapshot(function(snapshot) {
-      // console.log(snapshot.data())
+      console.log(snapshot.data())
           const data = snapshot.data();
           global.videoUrl = snapshot.data().outputUrl;
           global.fileName = snapshot.data().outputVideoId;
