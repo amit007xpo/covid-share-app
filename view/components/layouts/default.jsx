@@ -22,7 +22,7 @@ function DefaultLayout(props) {
             <meta property="og:video" content={video.outputUrl} />
             <meta property="og:video:url" content={video.outputUrl} />
             <meta property="og:video:secure_url" content={video.outputUrl} />
-            <meta property="og:video:type" content="video/mp4" />
+            <meta property="og:video:type" content="text/html" />
             <meta property="og:video:width" content="400" />
             <meta property="og:video:height" content="300" />
             
