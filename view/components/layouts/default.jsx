@@ -1,4 +1,5 @@
 var React = require('react');
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function DefaultLayout(props) {
   const {video, fullUrl, videoLibrary} = props;
