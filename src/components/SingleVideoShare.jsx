@@ -4,8 +4,44 @@ import React, { Component } from "react";
 import axios from 'axios'
 import Loader from "react-loader-spinner";
 
+import { Modal, Button } from 'react-bootstrap';
 import VideoCard from "./VideoCard";
+
 // import "./SingleVideoShare.scss";
+
+function MyVerticallyCenteredModal(props) {
+    return (
+      <Modal
+        {...props}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">
+            Steps to upload on social media
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <h4>Centered Modal</h4>
+          <p>
+            <ul>
+               <li>
+                   Download the video
+                </li> 
+                <li>
+                   Upload the video
+                </li> 
+            </ul>
+          </p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={props.onHide}>Close</Button>
+        </Modal.Footer>
+      </Modal>
+    );
+  }
+  
 
 class SingleVideoShare extends Component {
   static defaultProps = {
@@ -18,7 +54,8 @@ class SingleVideoShare extends Component {
     this.state = {
       video: {},
       isLoading: false,
-      videoFileExists: false
+      videoFileExists: false,
+      modalShow: false
     };
   }
 
@@ -26,29 +63,6 @@ class SingleVideoShare extends Component {
     this.setState({
       isLoading: true
     })
-    
-    // getVideo(this.props.match.params.userId, this.props.match.params.id).onSnapshot(querySnapshot => {
-    //   console.log(querySnapshot.data())
-
-    //   this.tryRequire(querySnapshot.data().outputUrl).then(res=>{
-    //     console.log(res);
-    //     this.setState({
-    //       videoFileExists: true,
-    //       video: querySnapshot.data(),
-    //       isLoading: false
-    //     });
-    //   }, err=> {
-    //     console.log(err)
-    //     this.setState({
-    //       videoFileExists: false
-    //     });
-    //     alert("file does not exist!");
-    //   });
-    //   // this.setState({
-    //   //         video: querySnapshot.data(),
-    //   //         isLoading: false
-    //   //       });
-    // });
   }
 
  tryRequire = (url) => {
@@ -63,9 +77,10 @@ class SingleVideoShare extends Component {
     })
 }
 
-//   shouldComponentUpdate(nextProps, nextState) {
-//     return Object.keys(this.state.video).length === 0;
-//   }
+setModalShow = (value) => {
+    this.setState({modalShow: value})
+}
+
 
   render() {
     const baseClassName = "psa-single-video-share";
@@ -75,6 +90,7 @@ class SingleVideoShare extends Component {
     console.log(video)
     console.log(fullUrl)
     console.log(videoLibrary)
+    const {modalShow} = this.state;
     
     if (isLoading) {
       // TODO : User might have no videos, to be fixed
@@ -104,6 +120,15 @@ class SingleVideoShare extends Component {
          videoUrl={video.video_url}
          />
          </div>
+
+    <Button variant="primary" onClick={() => this.setModalShow(true)}>
+        Upload on Plateforms Like Tik-tok and Instagram
+      </Button>
+
+      <MyVerticallyCenteredModal
+        show={modalShow}
+        onHide={() => this.setModalShow(false)}
+      />
       </div>
     );
   }

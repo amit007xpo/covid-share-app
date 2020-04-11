@@ -101,6 +101,10 @@ body{
 
 .psa-video-card__download {
   margin-top: 1rem;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
 }
 .psa-video-card__video-title {
   text-align: center;

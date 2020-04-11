@@ -1,5 +1,5 @@
 var React = require('react');
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function DefaultLayout(props) {
   const {video, fullUrl, videoLibrary} = props;
@@ -46,6 +46,12 @@ function DefaultLayout(props) {
             <meta name="twitter:creator" content="user-name" />
             <meta property="og:image" content="https://images.unsplash.com/photo-1585411241865-a7762556ce2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=751&q=80" />
         <link rel="stylesheet" type="text/css" href="/public/css/style.css" />
+        <link
+          rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossOrigin="anonymous"
+        />
       </head>
       <body>
         {/* {props.children} */}
