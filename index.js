@@ -90,7 +90,7 @@ app.get('/', function (req, res) {
               const data = snapshot.data();
               // global.videoUrl = snapshot.data().outputUrl;
               // global.fileName = snapshot.data().outputVideoId;
-              res.render(__dirname+ '/view/components/SingleVideoShare/index', { video: snapshot.data(), fullUrl: (req.protocol + '://' + req.get('host') + req.originalUrl), urlDownLoad: snapshot.data().outputUrl, videoLibrary: true });
+              res.render(__dirname+ '/view/components/SingleVideoShare/index', { video: snapshot.data(), fullUrl: (req.protocol + '://' + req.get('host') + req.originalUrl), videoLibrary: true });
           }, function (errorObject) {
             console.log("The read failed: " + errorObject.code);
             res.render(__dirname+ '/view/components/SingleVideoShare/index', { video: {}, fullUrl: (req.protocol + '://' + req.get('host') + req.originalUrl),videoLibrary: true });
