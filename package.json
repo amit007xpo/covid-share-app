@@ -9,6 +9,9 @@
     "dev": "nodemon --exec babel-node index.js",
     "webpack": "webpack -wd"
   },
+  "engines": {
+    "node": "10.x.x"
+  },
   "author": "amit, Subhrajeet",
   "license": "ISC",
   "dependencies": {

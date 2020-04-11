@@ -59,28 +59,28 @@ app.get('/', function (req, res) {
     .doc(req.params.videoId).onSnapshot(function(snapshot) {
       console.log(snapshot.data())
           const data = snapshot.data();
-          global.videoUrl = snapshot.data().outputUrl;
-          global.fileName = snapshot.data().outputVideoId;
-          res.render(__dirname+ '/view/components/SingleVideoShare/index', { video: snapshot.data(), fullUrl: (req.protocol + '://' + req.get('host') + req.originalUrl), urlDownLoad: snapshot.data().outputUrl, videoLibrary: false });
+          // global.videoUrl = snapshot.data().outputUrl;
+          // global.fileName = snapshot.data().outputVideoId;
+          res.render(__dirname+ '/view/components/SingleVideoShare/index', { video: snapshot.data(), fullUrl: (req.protocol + '://' + req.get('host') + req.originalUrl), videoLibrary: false });
       }, function (errorObject) {
         console.log("The read failed: " + errorObject.code);
         res.render(__dirname+ '/view/components/SingleVideoShare/index', { video: {}, fullUrl: (req.protocol + '://' + req.get('host') + req.originalUrl), videoLibrary: false });
       });
   });
 
-  app.get('/download/video', function (req, res) { 
-        const url = global.videoUrl;
-          // const filename = url.split('/').pop();// custom file name
-          const filename = global.fileName;
-          const mimetype = mime.lookup('mp4');
-          // console.log(mimetype);
-          const headers = {
-              'Content-Disposition': 'attachment; filename=' + filename,
-              'Content-type': mimetype
-          };
-          res.set(headers);
-          request(url).pipe(res);
-      })
+  // app.get('/download/video', function (req, res) { 
+  //       const url = global.videoUrl;
+  //         // const filename = url.split('/').pop();// custom file name
+  //         const filename = global.fileName;
+  //         const mimetype = mime.lookup('mp4');
+  //         // console.log(mimetype);
+  //         const headers = {
+  //             'Content-Disposition': 'attachment; filename=' + filename,
+  //             'Content-type': mimetype
+  //         };
+  //         res.set(headers);
+  //         request(url).pipe(res);
+  //     })
 
       app.get('/videolibrary/:videoId', function (req, res) {
         db.collection("videolibrary")
