@@ -93,6 +93,11 @@ body{
   flex-direction: column;
 }
 
+.psa-video-card__video-div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 .psa-video-card__name {
   color: white;
   cursor: pointer;

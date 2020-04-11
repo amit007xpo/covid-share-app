@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from 'axios'
 // import { withRouter } from "react-router-dom";
+import {ResponsiveEmbed} from 'react-bootstrap';
 import Moment from 'react-moment'
 import {
   FacebookShareButton,
@@ -50,25 +51,30 @@ class VideoCard extends Component {
  }
 
   render() {
-    const { url, name, date, videoLibrary, videoUrl } = this.props;
+    const { url, name, date, videoLibrary, videoUrl, fullUrl } = this.props;
+    console.log(fullUrl);
     const baseClassName = "psa-video-card";
     
     return (
       <div className={`${baseClassName}`}>
-        {
-            videoLibrary && <div>
-                <iframe width="420" height="345" src={videoUrl}>
-                </iframe>
-            </div>
-        }
-        {
-            !videoLibrary && <video width="420" height="345" controls>
-                    <source src={url} type="video/mp4" />
-                    {/* <source src="movie.ogg" type="video/ogg" /> */}
-                    Your browser does not support the video tag.
-                </video>
-        }
+        <div className={`${baseClassName}__video-div`}>
 
+            {
+                videoLibrary && <ResponsiveEmbed aspectRatio="16by9">
+                    <iframe width="400" height="300" src={videoUrl}>
+                    </iframe>
+                    </ResponsiveEmbed>
+            }
+            {
+                !videoLibrary &&  <ResponsiveEmbed aspectRatio="16by9">
+                <video width="400" height="300" controls>
+                        <source src={url} type="video/mp4" />
+                        {/* <source src="movie.ogg" type="video/ogg" /> */}
+                        Your browser does not support the video tag.
+                    </video>
+                 </ResponsiveEmbed>
+            }
+        </div>
         <div
           className={`${baseClassName}__name`}
           onClick={() => this.redirectToSingleVideo()}
@@ -76,27 +82,27 @@ class VideoCard extends Component {
           <h3>{name}</h3>
         </div>
         <div className={`${baseClassName}__share`}>
-          <FacebookShareButton url={''}>
+          <FacebookShareButton url={fullUrl}>
             <FacebookIcon size="30" round={true} />
           </FacebookShareButton>
 
-          <LinkedinShareButton url={''}>
+          <LinkedinShareButton url={fullUrl}>
             <LinkedinIcon size="30" round={true} />
           </LinkedinShareButton>
 
-          <TwitterShareButton url={''}>
+          <TwitterShareButton url={fullUrl}>
             <TwitterIcon size="30" round={true} />
           </TwitterShareButton>
 
-          <TelegramShareButton url={''}>
+          <TelegramShareButton url={fullUrl}>
             <TelegramIcon size="30" round={true} />
           </TelegramShareButton>
 
-          <WhatsappShareButton url={''}>
+          <WhatsappShareButton url={fullUrl}>
             <WhatsappIcon size="30" round={true} />
           </WhatsappShareButton>
 
-          <EmailShareButton url={''}>
+          <EmailShareButton url={fullUrl}>
             <EmailIcon size="30" round={true} />
           </EmailShareButton>
         </div>
@@ -104,7 +110,7 @@ class VideoCard extends Component {
           created on: <Moment format="dddd, MMMM D, YYYY hh:mm A" withTitle>{date}</Moment>
         </div>
         <div className={`${baseClassName}__download`}>
-            <button onClick={()=>this.downloadFile()} className={`${baseClassName}__download-button`}><FaDownload color={"white"}/></button>
+            <button onClick={()=>this.downloadFile()} className={`${baseClassName}__download-button`}><FaDownload color={"white"} text="Download"/></button>
         </div>
       </div>
     );
