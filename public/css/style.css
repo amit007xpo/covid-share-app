@@ -173,3 +173,11 @@ body{
     display: block !important;
   }
 }
+
+#reactele {
+  height: 100%;
+}
+
+.psa-app {
+  height: 100%;
+}

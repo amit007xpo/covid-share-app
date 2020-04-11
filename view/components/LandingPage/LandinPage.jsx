@@ -3,20 +3,8 @@ var DefaultLayout = require('../layouts/default');
 var Loader = require("react-loader-spinner");
 var Helmet = require("react-helmet");
 var VideoCard = require("../VideoCard")
-// import './LandingPage.css';
-
-// function HelloMessage(props) {
-//   return (
-//     <DefaultLayout title={props.title}>
-//       <div>Hello {props.name}</div>
-//     </DefaultLayout>
-//   );
-// }
 
 class LandingPage extends React.Component {
-    // static defaultProps = {
-    //   shouldDisplayMenu: true
-    // };
   
     constructor(props) {
       super(props);
@@ -27,49 +15,10 @@ class LandingPage extends React.Component {
       };
     }
   
-    // componentDidMount() {
-    //   this.setState({ isLoading: true });
-    //   auth().onAuthStateChanged(user => {
-    //     if (user) {
-    //       getUserVideos(user.uid).onSnapshot(querySnapshot => {
-    //         let videos = [];
-    //         let psaId = [];
-    //         querySnapshot.forEach(function(doc) {
-    //           console.log(doc.id, " => ", doc.data());
-    //           videos.push(doc.data());
-    //           psaId.push(doc.id);
-    //         });
-    //         this.setState({
-    //           videos: videos,
-    //           isLoading: false,
-    //           psaId: psaId,
-    //           userId: user.uid
-    //         });
-    //       });
-    //     }
-    //   });
-    // }
-  
-    // shouldComponentUpdate(nextProps, nextState) {
-    //   return this.state.videos.length === 0;
-    // }
     render() {
       const baseClassName = "psa-landing-page";
-      const { isLoading, videos, psaId, userId } = this.state;
-      // if (isLoading) {
-        // return (
-        //   <div className={`${baseClassName}__loader-div`}>
-        //     {/* fix this loader thing */}
-        //     <Loader
-        //       type="ThreeDots"
-        //       color="#00BFFF"
-        //       height={100}
-        //       width={100}
-        //       timeout={3000}
-        //     />
-        //   </div>
-        // );
-      // }
+      const { isLoading, videos, psaId, userId, htmlToSend } = this.state;
+
       const mystyle = {
         color: "white",
         backgroundColor: "DodgerBlue",
@@ -96,7 +45,7 @@ class LandingPage extends React.Component {
               <meta name="twitter:card" content="summary_large_image" />
           </Helmet> */}
           <div className={`${baseClassName}__video-list`}>
-            {videos.map((video, index) => {
+            {/* {videos.map((video, index) => {
               return (
                 <VideoCard
                   url={video.outputUrl}
@@ -110,9 +59,12 @@ class LandingPage extends React.Component {
                   date={video.createdDate ? new Date(video.createdDate.seconds*1000) : video.createdDate}
                 />
               );
-            })}
+            })} */}
             {/* hello dude */}
+
           </div>
+
+          <div>{htmlToSend}</div>
         </div>
       );
     }

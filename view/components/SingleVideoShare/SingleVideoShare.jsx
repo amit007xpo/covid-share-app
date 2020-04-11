@@ -2,6 +2,7 @@ var React = require("react");
 var VideoCard = require("../VideoCard");
 var NavigationBar = require('../NavigationBar');
 var Layout = require('../layouts/default');
+import App from '../../../src/components/app'
 
 class SingleVideoShare extends React.Component {
 
@@ -22,7 +23,7 @@ class SingleVideoShare extends React.Component {
  
   render() {
     const baseClassName = "psa-single-video-share";
-    const { video, fullUrl, urlDownLoad } = this.props;
+    const { video, fullUrl, urlDownLoad, videoLibrary } = this.props;
     if (video ===undefined || Object.keys(video).length === 0) {
       // TODO : User might have no videos, to be fixed
       return (
@@ -32,7 +33,7 @@ class SingleVideoShare extends React.Component {
       );
     }
     return (
-      <Layout video={video} fullUrl={fullUrl}>
+      <Layout video={video} fullUrl={fullUrl} videoLibrary={videoLibrary}>
       <div className={`${baseClassName}`}>
         <NavigationBar />
       <div className={`${baseClassName}__video-div`}>
@@ -47,7 +48,6 @@ class SingleVideoShare extends React.Component {
          />
         </div>
       </div>
-
       </Layout>
     );
   }
