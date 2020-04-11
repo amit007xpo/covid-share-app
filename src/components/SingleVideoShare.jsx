@@ -7,6 +7,9 @@ import Loader from "react-loader-spinner";
 import { Modal, Button } from 'react-bootstrap';
 import VideoCard from "./VideoCard";
 
+// import PsaApp from '../images/psa.jpg';
+// import Tiktok from '../images/tiktok.jpg';
+// import Instagram from '../images/instagram.jpg';
 // import "./SingleVideoShare.scss";
 
 function MyVerticallyCenteredModal(props) {
@@ -23,15 +26,18 @@ function MyVerticallyCenteredModal(props) {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <h4>Centered Modal</h4>
+          <h4>Steps:</h4>
           <p>
             <ul>
                <li>
                    Download the video
                 </li> 
                 <li>
-                   Upload the video
+                   Open the App (titok/instagram)
                 </li> 
+                <li>
+                   Upload the video
+                </li>
             </ul>
           </p>
         </Modal.Body>

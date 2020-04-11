@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import {Navbar} from 'react-bootstrap'
 // import "./NavigationBar.scss";
 
 class NavigationBar extends Component {
@@ -47,19 +47,9 @@ class NavigationBar extends Component {
     );
 
     return (
-      <div className={`${baseClassName}`}>
-        <ul className={`${baseClassName}__nav-ul`}>
-          <li>
-            <a href="# " className="active" onClick={this.goBackBtn}>
-              Back
-            </a>
-          </li>
-          {/* <li>
-            <a href={process.env.REACT_APP_LINK_VIDEO_LIB}>Video library</a>
-          </li> */}
-          <li>{userName && userProfile}</li>
-        </ul>
-      </div>
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar.Brand href="#" onClick={this.goBackBtn}>Back</Navbar.Brand>
+    </Navbar>
     );
   }
 }

@@ -107,7 +107,7 @@ class VideoCard extends Component {
           </EmailShareButton>
         </div>
         <div className={`${baseClassName}__date`}>
-          created on: <Moment format="dddd, MMMM D, YYYY hh:mm A" withTitle>{date}</Moment>
+         <Moment format="dddd, MMMM D, YYYY hh:mm A" withTitle>{date}</Moment>
         </div>
         <div className={`${baseClassName}__download`}>
             <button onClick={()=>this.downloadFile()} className={`${baseClassName}__download-button`}><FaDownload color={"white"} text="Download"/></button>
