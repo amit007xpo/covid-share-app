@@ -111,16 +111,37 @@ body{
   justify-content: center;
   margin-bottom: 1rem;
 }
+
+.psa-video-card__video-tag {
+  object-fit: cover;
+}
 .psa-video-card__video-title {
   text-align: center;
   color:white;
   font-size: 1.3rem;
 }
+
+.psa-video-card__share-text {
+  color: white;
+  font-size: 1.3rem;
+}
+
 .psa-video-card__share {
   display: flex;
   justify-content: center;
-  margin-top: 1rem;
   width: 100%;
+}
+.psa-video-card__social-button {
+  border-radius: 100%;
+  border: none;
+  outline: none;
+  width: 30px;
+  height: 30px;
+}
+
+.psa-video-card__social-image {
+  width: 1rem;
+  height: 1rem;
 }
 
 .psa-video-card__video-div {
@@ -145,6 +166,9 @@ body{
   display: flex;
   justify-content: center;
   outline: none;
+}
+.psa-video-card__button-share-url {
+  color: white;
 }
 
 .socialShareLinks li {

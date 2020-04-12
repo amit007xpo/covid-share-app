@@ -3,50 +3,12 @@ import React, { Component } from "react";
 // import { getVideo } from "../../helpers/db";
 import axios from 'axios'
 import Loader from "react-loader-spinner";
-
-import { Modal, Button } from 'react-bootstrap';
 import VideoCard from "./VideoCard";
 
 // import PsaApp from '../images/psa.jpg';
 // import Tiktok from '../images/tiktok.jpg';
 // import Instagram from '../images/instagram.jpg';
 // import "./SingleVideoShare.scss";
-
-function MyVerticallyCenteredModal(props) {
-    return (
-      <Modal
-        {...props}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-      >
-        <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">
-            Steps to upload on social media
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <h4>Steps:</h4>
-          <p>
-            <ul>
-               <li>
-                   Download the video
-                </li> 
-                <li>
-                   Open the App (titok/instagram)
-                </li> 
-                <li>
-                   Upload the video
-                </li>
-            </ul>
-          </p>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button onClick={props.onHide}>Close</Button>
-        </Modal.Footer>
-      </Modal>
-    );
-  }
   
 
 class SingleVideoShare extends Component {
@@ -83,10 +45,6 @@ class SingleVideoShare extends Component {
     })
 }
 
-setModalShow = (value) => {
-    this.setState({modalShow: value})
-}
-
 
   render() {
     const baseClassName = "psa-single-video-share";
@@ -96,7 +54,6 @@ setModalShow = (value) => {
     console.log(video)
     console.log(fullUrl)
     console.log(videoLibrary)
-    const {modalShow} = this.state;
     
     if (isLoading) {
       // TODO : User might have no videos, to be fixed
@@ -126,15 +83,6 @@ setModalShow = (value) => {
          videoUrl={video.video_url}
          />
          </div>
-
-    <Button variant="primary" onClick={() => this.setModalShow(true)}>
-        Upload on Plateforms Like Tik-tok and Instagram
-      </Button>
-
-      <MyVerticallyCenteredModal
-        show={modalShow}
-        onHide={() => this.setModalShow(false)}
-      />
       </div>
     );
   }
