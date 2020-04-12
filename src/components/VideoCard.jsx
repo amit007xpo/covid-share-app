@@ -138,7 +138,7 @@ class VideoCard extends Component {
         <p className={`${baseClassName}__share-text`}>Share</p>
         
         <div className={`${baseClassName}__share`}>
-          <FacebookShareButton url={fullUrl}>
+          <FacebookShareButton url={fullUrl} quote={`Share awareness for covid-19`} hashtags={[`covid19`, 'saveWorld']}>
             <FacebookIcon size="30" round={true} />
           </FacebookShareButton>
 
@@ -146,19 +146,19 @@ class VideoCard extends Component {
             <LinkedinIcon size="30" round={true} />
           </LinkedinShareButton>
 
-          <TwitterShareButton url={fullUrl}>
+          <TwitterShareButton url={fullUrl} title={`Share awareness for covid-19`} hashtags={[`covid19`, 'saveWorld']}>
             <TwitterIcon size="30" round={true} />
           </TwitterShareButton>
 
-          <TelegramShareButton url={fullUrl}>
+          <TelegramShareButton title={'Share awareness for covid-19'} url={fullUrl}>
             <TelegramIcon size="30" round={true} />
           </TelegramShareButton>
 
-          <WhatsappShareButton url={fullUrl}>
+          <WhatsappShareButton url={fullUrl} title={'Share awareness for covid-19'} separator={`:-`}>
             <WhatsappIcon size="30" round={true} />
           </WhatsappShareButton>
 
-          <EmailShareButton url={fullUrl}>
+          <EmailShareButton url={fullUrl} subject={`Share awareness for covid-19`} body={`This video tell you about covid-19`} separator=':-'>
             <EmailIcon size="30" round={true} />
           </EmailShareButton>
           {/* <InstagramIcon size="30" round={true} /> */}
