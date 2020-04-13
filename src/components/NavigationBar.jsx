@@ -47,8 +47,8 @@ class NavigationBar extends Component {
     );
 
     return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Navbar.Brand href="#" onClick={this.goBackBtn}>Back</Navbar.Brand>
+    <Navbar collapseOnSelect expand="lg" sticky="top" style={{backgroundColor:'black', color: 'white'}}>
+        <Navbar.Brand href="#" onClick={this.goBackBtn} style={{color: 'black', backgroundColor: 'white', padding: '0 1rem'}}>Back</Navbar.Brand>
     </Navbar>
     );
   }

@@ -49,6 +49,7 @@ function DefaultLayout(props) {
             <meta property="og:image:width" content="1200" />
             <meta property="og:image:height" content="630" />
         <link rel="stylesheet" type="text/css" href="/public/css/style.css" />
+        <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' />
         <link
           rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"

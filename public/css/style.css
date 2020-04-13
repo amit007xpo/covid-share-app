@@ -1,9 +1,12 @@
 html{
-    height: 100%;
+   width: 100%;
 }
 body{
     margin: 0;
-    height: 100%;
+    width: 100%;
+}
+* {
+  font-family: 'Montserrat';
 }
 .psa-navigation-bar {
   position: sticky;
@@ -15,7 +18,7 @@ body{
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background-color: #010101;
   max-width: 100%;
 }
 
@@ -32,7 +35,7 @@ body{
 }
 
 .psa-navigation-bar__nav-ul > li a:hover {
-  background-color: #111;
+  background-color: #010101;
 }
 
 .psa-navigation-bar__nav-ul > li:last-child {
@@ -63,14 +66,14 @@ body{
 }
 
 .psa-single-video-share {
-  background-color: #1e1e2f;
+  background-color: #010101;
   /* display: flex; */
   justify-content: space-around;
   /* // height: 100vh; */
   /* padding-top: 1rem; */
   text-align: center;
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
 }
 
 .psa-single-video-share__video-div {
@@ -91,6 +94,7 @@ body{
   text-align: center;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .psa-video-card__video-div{
@@ -135,9 +139,14 @@ body{
   border-radius: 100%;
   border: none;
   outline: none;
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
+  margin: 2px;
 }
+.react-share__ShareButton {
+  margin: 2px;
+}
+
 .psa-video-card__social-media {
   width: 100px;
 }
@@ -183,11 +192,12 @@ body{
 }
 .socialShareLinks li a {
     display: block;
-    height: 30px;
+    height: 35px;
     overflow: hidden;
-    width: 30px;
+    width: 35px;
     /* background-color: #eee; */
     border-radius: 10px;
+    margin: 2px
 }
 .socialShareLinks li a:hover {
     background-color: #fff;
@@ -215,4 +225,8 @@ body{
 
 .psa-app {
   height: 100%;
+}
+
+.bg-dark{
+  background-color: black !important;
 }

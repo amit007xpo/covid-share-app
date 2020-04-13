@@ -120,8 +120,8 @@ class VideoCard extends Component {
             }
             {
                 !videoLibrary &&  <ResponsiveEmbed aspectRatio="16by9">
-                <video width="400" height="300" controls className={`${baseClassName}__video-tag`}>
-                        <source src={url} type="video/mp4" />
+                <video controls className={`${baseClassName}__video-tag`}>
+                        <source src={url} type="video/mp4" media="screen and (min-device-width:401px)"/>
                         {/* <source src="movie.ogg" type="video/ogg" /> */}
                         Your browser does not support the video tag.
                     </video>
@@ -142,27 +142,27 @@ class VideoCard extends Component {
         
         <div className={`${baseClassName}__share`}>
           <FacebookShareButton url={fullUrl} quote={`Share awareness for covid-19`} hashtags={[`covid19`, 'saveWorld']}>
-            <FacebookIcon size="30" round={true} />
+            <FacebookIcon size="35" round={true} />
           </FacebookShareButton>
 
           <LinkedinShareButton url={fullUrl}>
-            <LinkedinIcon size="30" round={true} />
+            <LinkedinIcon size="35" round={true} />
           </LinkedinShareButton>
 
           <TwitterShareButton url={fullUrl} title={`Share awareness for covid-19`} hashtags={[`covid19`, 'saveWorld']}>
-            <TwitterIcon size="30" round={true} />
+            <TwitterIcon size="35" round={true} />
           </TwitterShareButton>
 
           <TelegramShareButton title={'Share awareness for covid-19'} url={fullUrl}>
-            <TelegramIcon size="30" round={true} />
+            <TelegramIcon size="35" round={true} />
           </TelegramShareButton>
 
           <WhatsappShareButton url={fullUrl} title={'Share awareness for covid-19'} separator={`:-`}>
-            <WhatsappIcon size="30" round={true} />
+            <WhatsappIcon size="35" round={true} />
           </WhatsappShareButton>
 
           <EmailShareButton url={fullUrl} subject={`Share awareness for covid-19`} body={`This video tell you about covid-19`} separator=':-'>
-            <EmailIcon size="30" round={true} />
+            <EmailIcon size="35" round={true} />
           </EmailShareButton>
           {/* <InstagramIcon size="30" round={true} /> */}
           <button className={`${baseClassName}__social-button`} onClick={() => this.setModalShow(true, 'Instagram')}>
