@@ -3,7 +3,7 @@ import axios from 'axios'
 // import { withRouter } from "react-router-dom";
 import {ResponsiveEmbed} from 'react-bootstrap';
 import Moment from 'react-moment'
-import { Modal, Button, Form, Col, InputGroup, FormControl } from 'react-bootstrap';
+import { Modal, Button, Form, Col, InputGroup, FormControl, Image } from 'react-bootstrap';
 import {
   FacebookShareButton,
   LinkedinShareButton,
@@ -35,23 +35,25 @@ function MyVerticallyCenteredModal(props) {
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          Steps to upload on social media
+          Steps to upload on {props.socialMedia}
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <h4>Steps:</h4>
         <p>
-          <ul>
+          <ol>
              <li>
-                 Download the video
+                 <h6>Download the video</h6>
+                 <Image src="/public/media/psa.jpg" alt="social media" className={`${props.baseClassName}__social-media`} fluid/>
               </li> 
               <li>
-                 Open the App (titok/instagram)
+                <h6>Open the {props.socialMedia}</h6>
               </li> 
               <li>
-                 Upload the video
+                 <h6>Upload the video</h6>
+                 <Image src={props.socialMedia === 'TikTok' ? "/public/media/titktok.jpg" : "/public/media/instagram.jpg"} alt="social media" className={`${props.baseClassName}__social-media`} fluid />
               </li>
-          </ul>
+          </ol>
         </p>
       </Modal.Body>
       <Modal.Footer>
@@ -70,7 +72,8 @@ class VideoCard extends Component {
   constructor(props){
     super(props);
     this.state = {
-      modalShow: false
+      modalShow: false,
+      socialMedia: ''
     }
   }
   redirectToSingleVideo = () => {
@@ -96,14 +99,14 @@ class VideoCard extends Component {
       link.click();
   });
  }
- setModalShow = (value) => {
-  this.setState({modalShow: value})
+ setModalShow = (value, media) => {
+  this.setState({modalShow: value, socialMedia: media})
 }
   render() {
     const { url, name, date, videoLibrary, videoUrl, fullUrl } = this.props;
     console.log(fullUrl);
     const baseClassName = "psa-video-card";
-    const {modalShow} = this.state;
+    const {modalShow, socialMedia} = this.state;
 
     return (
       <div className={`${baseClassName}`}>
@@ -162,10 +165,10 @@ class VideoCard extends Component {
             <EmailIcon size="30" round={true} />
           </EmailShareButton>
           {/* <InstagramIcon size="30" round={true} /> */}
-          <button className={`${baseClassName}__social-button`} onClick={() => this.setModalShow(true)}>
+          <button className={`${baseClassName}__social-button`} onClick={() => this.setModalShow(true, 'Instagram')}>
             <img src="/public/media/insta.png" alt="tiktok" className={`${baseClassName}__social-image`}/>
           </button>
-          <button className={`${baseClassName}__social-button`} onClick={() => this.setModalShow(true)}>
+          <button className={`${baseClassName}__social-button`} onClick={() => this.setModalShow(true,'TikTok')}>
             <img src="/public/media/titktok.png" alt="tiktok" className={`${baseClassName}__social-image`}/>
           </button>
         </div>
@@ -189,6 +192,8 @@ class VideoCard extends Component {
         <MyVerticallyCenteredModal
         show={modalShow}
         onHide={() => this.setModalShow(false)}
+        socialMedia={this.state.socialMedia}
+        baseClassName={baseClassName}
       />
       </div>
     );

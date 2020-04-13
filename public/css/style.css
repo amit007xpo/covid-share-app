@@ -138,6 +138,9 @@ body{
   width: 30px;
   height: 30px;
 }
+.psa-video-card__social-media {
+  width: 100px;
+}
 
 .psa-video-card__social-image {
   width: 1rem;
