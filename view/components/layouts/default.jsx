@@ -56,6 +56,12 @@ function DefaultLayout(props) {
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
           crossOrigin="anonymous"
         />
+      <script charSet="utf-8">
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments)}
+        gtag('js', new Date());
+        gtag('config', 'UA-162682780-1');
+      </script>
       </head>
       <body>
         {/* {props.children} */}
