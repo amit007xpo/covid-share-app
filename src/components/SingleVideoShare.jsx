@@ -81,6 +81,7 @@ class SingleVideoShare extends Component {
          fullUrl={fullUrl}
          videoLibrary={videoLibrary}
          videoUrl={video.video_url}
+         description={video.description}
          />
          </div>
       </div>

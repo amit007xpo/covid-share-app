@@ -103,7 +103,7 @@ class VideoCard extends Component {
   this.setState({modalShow: value, socialMedia: media})
 }
   render() {
-    const { url, name, date, videoLibrary, videoUrl, fullUrl } = this.props;
+    const { url, name, date, videoLibrary, videoUrl, fullUrl, description } = this.props;
     console.log(fullUrl);
     const baseClassName = "psa-video-card";
     const {modalShow, socialMedia} = this.state;
@@ -141,7 +141,7 @@ class VideoCard extends Component {
         <p className={`${baseClassName}__share-text`}>Share</p>
         
         <div className={`${baseClassName}__share`}>
-          <FacebookShareButton url={fullUrl} quote={`Share awareness for covid-19`} hashtags={[`covid19`, 'saveWorld']}>
+          <FacebookShareButton url={fullUrl} quote={description} hashtags={[`covid19`, 'saveWorld']}>
             <FacebookIcon size="35" round={true} />
           </FacebookShareButton>
 
@@ -149,19 +149,19 @@ class VideoCard extends Component {
             <LinkedinIcon size="35" round={true} />
           </LinkedinShareButton>
 
-          <TwitterShareButton url={fullUrl} title={`Share awareness for covid-19`} hashtags={[`covid19`, 'saveWorld']}>
+          <TwitterShareButton url={fullUrl} title={description} hashtags={[`covid19`, 'saveWorld']}>
             <TwitterIcon size="35" round={true} />
           </TwitterShareButton>
 
-          <TelegramShareButton title={'Share awareness for covid-19'} url={fullUrl}>
+          <TelegramShareButton title={description} url={fullUrl}>
             <TelegramIcon size="35" round={true} />
           </TelegramShareButton>
 
-          <WhatsappShareButton url={fullUrl} title={'Share awareness for covid-19'} separator={`:-`}>
+          <WhatsappShareButton url={fullUrl} title={description} separator={`:-`}>
             <WhatsappIcon size="35" round={true} />
           </WhatsappShareButton>
 
-          <EmailShareButton url={fullUrl} subject={`Share awareness for covid-19`} body={`This video tell you about covid-19`} separator=':-'>
+          <EmailShareButton url={fullUrl} subject={`Share awareness for covid-19`} body={description} separator=':-'>
             <EmailIcon size="35" round={true} />
           </EmailShareButton>
           {/* <InstagramIcon size="30" round={true} /> */}
