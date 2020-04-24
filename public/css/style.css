@@ -118,7 +118,7 @@ body{
 }
 
 .psa-video-card__video-tag {
-  object-fit: cover;
+  object-fit: fill;
 }
 .psa-video-card__video-title {
   text-align: center;
