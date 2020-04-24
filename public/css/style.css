@@ -79,6 +79,7 @@ body{
 .psa-single-video-share__video-div {
     display: flex;
     justify-content: space-around;
+    padding: 1rem;
 }
 .psa-single-video-share__loader-div {
   background-color: #1e1e2f;
