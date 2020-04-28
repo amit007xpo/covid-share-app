@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import {Navbar} from 'react-bootstrap'
 // import "./NavigationBar.scss";
-
+import locale from "../localize.json";
 class NavigationBar extends Component {
   static defaultProps = {
     shouldDisplayMenu: true
@@ -9,7 +9,9 @@ class NavigationBar extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      localeData: localStorage.getItem("language") || 'en'
+    };
   }
 
   goBackBtn = (e) => {
@@ -45,10 +47,10 @@ class NavigationBar extends Component {
         </span>
       </div>
     );
-
+    const {localeData} = this.state;
     return (
     <Navbar collapseOnSelect expand="lg" sticky="top" style={{backgroundColor:'black', color: 'white'}}>
-        <Navbar.Brand href="#" onClick={this.goBackBtn} style={{color: 'black', backgroundColor: 'white', padding: '0 1rem'}}>Back</Navbar.Brand>
+        <Navbar.Brand href="#" onClick={this.goBackBtn} style={{color: 'black', backgroundColor: 'white', padding: '0 1rem'}}>{locale.back[localeData]}</Navbar.Brand>
     </Navbar>
     );
   }

@@ -19,6 +19,7 @@ import {
   EmailIcon
 } from "react-share";
 import { FaDownload } from "react-icons/fa";
+import locale from "../localize.json";
 // import Insta from '../images/insta'
 // import Tiktok from '../images/tiktok.png'
 // import "./VideoCard.scss";
@@ -26,6 +27,8 @@ import { FaDownload } from "react-icons/fa";
 
 
 function MyVerticallyCenteredModal(props) {
+  console.log(locale.stepsToUploadInstagram[props.localeData])
+  const lang = props.localeData;
   return (
     <Modal
       {...props}
@@ -35,22 +38,22 @@ function MyVerticallyCenteredModal(props) {
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          Steps to upload on {props.socialMedia}
+          {props.socialMedia === 'Instagram'? locale.stepsToUploadInstagram[props.localeData] : locale.stepsToUploadTiktok[props.localeData]}
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <h4>Steps:</h4>
+        <h4>{locale.steps[props.localeData]}:</h4>
         <p>
           <ol>
              <li>
-                 <h6>Download the video</h6>
+                <h6>{locale.downloadTheVideo[props.localeData]}</h6>
                  <Image src="/public/media/psa.jpg" alt="social media" className={`${props.baseClassName}__social-media`} fluid/>
               </li> 
               <li>
-                <h6>Open the {props.socialMedia}</h6>
+                <h6>{props.socialMedia === 'Instagram'? locale.openInsta[props.localeData] : locale.openTiktok[props.localeData]}</h6>
               </li> 
               <li>
-                 <h6>Upload the video</h6>
+              <h6>{locale.uploadTheVideo[props.localeData]}</h6>
                  <Image src={props.socialMedia === 'TikTok' ? "/public/media/titktok.jpg" : "/public/media/instagram.jpg"} alt="social media" className={`${props.baseClassName}__social-media`} fluid />
               </li>
           </ol>
@@ -73,7 +76,8 @@ class VideoCard extends Component {
     super(props);
     this.state = {
       modalShow: false,
-      socialMedia: ''
+      socialMedia: '',
+     localeData: localStorage.getItem("language") || 'en'
     }
   }
   redirectToSingleVideo = () => {
@@ -104,10 +108,14 @@ class VideoCard extends Component {
 }
   render() {
     const { url, name, date, videoLibrary, videoUrl, fullUrl, description } = this.props;
+    const {localeData} = this.state
     console.log(fullUrl);
     const baseClassName = "psa-video-card";
     const {modalShow, socialMedia} = this.state;
 
+    // const localeData = localStorage.getItem("language") || 'en';
+   console.log(locale);
+   console.log(localeData)
     return (
       <div className={`${baseClassName}`}>
         <div className={`${baseClassName}__video-div`}>
@@ -137,7 +145,7 @@ class VideoCard extends Component {
               aria-describedby="basic-addon2"
             />
             <InputGroup.Append>
-              <Button variant="outline-secondary" className={`${baseClassName}__button-share-url`} onClick={() => {navigator.clipboard.writeText(fullUrl)}} style={{color: 'white'}}>Copy page url</Button>
+          <Button variant="outline-secondary" className={`${baseClassName}__button-share-url`} onClick={() => {navigator.clipboard.writeText(fullUrl)}} style={{color: 'white'}}>{locale.copyPageUrl[localeData]}</Button>
             </InputGroup.Append>
           </InputGroup>
         </div>
@@ -177,7 +185,7 @@ class VideoCard extends Component {
         </div>
         
         <div className={`${baseClassName}__download`}>
-            <Button onClick={()=>this.downloadFile()} className={`${baseClassName}__download-button`} style={{backgroundColor: 'transparent'}}><FaDownload color={"white"} text="Download"/> Download Video</Button>
+            <Button onClick={()=>this.downloadFile()} className={`${baseClassName}__download-button`} style={{backgroundColor: 'transparent'}}><FaDownload color={"white"} text="Download"/> {locale.downloadVideo[localeData]}</Button>
         </div>
         </div>
         <div
@@ -196,6 +204,7 @@ class VideoCard extends Component {
         onHide={() => this.setModalShow(false)}
         socialMedia={this.state.socialMedia}
         baseClassName={baseClassName}
+        localeData={localeData}
       />
       </div>
     );
