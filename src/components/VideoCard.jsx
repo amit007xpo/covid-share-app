@@ -128,18 +128,21 @@ class VideoCard extends Component {
                  </ResponsiveEmbed>
             }
         </div>
-        <div
-          className={`${baseClassName}__name`}
-          onClick={() => this.redirectToSingleVideo()}
-        >
-          <h3>{name}</h3>
+        <div>
+        <InputGroup className="mb-3">
+            <FormControl
+              placeholder={fullUrl}
+              aria-label="Page Url"
+              value={fullUrl}
+              aria-describedby="basic-addon2"
+            />
+            <InputGroup.Append>
+              <Button variant="outline-secondary" className={`${baseClassName}__button-share-url`} onClick={() => {navigator.clipboard.writeText(fullUrl)}} style={{color: 'white'}}>Copy page url</Button>
+            </InputGroup.Append>
+          </InputGroup>
         </div>
-        <div className={`${baseClassName}__date`}>
-         <Moment format="dddd, MMMM D, YYYY hh:mm A" withTitle>{date}</Moment>
-        </div>
-        
-        <p className={`${baseClassName}__share-text`}>Share</p>
-        
+        {/* <p className={`${baseClassName}__share-text`}>Share</p> */}
+        <div className={`${baseClassName}__share-download-div`}>
         <div className={`${baseClassName}__share`}>
           <FacebookShareButton url={fullUrl} quote={description} hashtags={[`covid19`, 'saveWorld']}>
             <FacebookIcon size="35" round={true} />
@@ -172,23 +175,22 @@ class VideoCard extends Component {
             <img src="/public/media/titktok.png" alt="tiktok" className={`${baseClassName}__social-image`}/>
           </button>
         </div>
+        
         <div className={`${baseClassName}__download`}>
             <Button onClick={()=>this.downloadFile()} className={`${baseClassName}__download-button`} style={{backgroundColor: 'transparent'}}><FaDownload color={"white"} text="Download"/> Download Video</Button>
         </div>
-        
-        <div>
-        <InputGroup className="mb-3">
-            <FormControl
-              placeholder={fullUrl}
-              aria-label="Page Url"
-              value={fullUrl}
-              aria-describedby="basic-addon2"
-            />
-            <InputGroup.Append>
-              <Button variant="outline-secondary" className={`${baseClassName}__button-share-url`} onClick={() => {navigator.clipboard.writeText(fullUrl)}} style={{color: 'white'}}>Copy page url</Button>
-            </InputGroup.Append>
-          </InputGroup>
         </div>
+        <div
+          className={`${baseClassName}__name`}
+          onClick={() => this.redirectToSingleVideo()}
+        >
+          <h3>{name}</h3>
+        </div>
+        <div className={`${baseClassName}__date`}>
+         <Moment format="dddd, MMMM D, YYYY hh:mm A" withTitle>{date}</Moment>
+        </div>
+        
+        
         <MyVerticallyCenteredModal
         show={modalShow}
         onHide={() => this.setModalShow(false)}

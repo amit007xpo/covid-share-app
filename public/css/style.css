@@ -125,6 +125,12 @@ body{
   color:white;
   font-size: 1.3rem;
 }
+.psa-video-card__share-download-div {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+}
 
 .psa-video-card__share-text {
   color: white;
@@ -135,7 +141,35 @@ body{
   display: flex;
   justify-content: center;
   width: 100%;
+  position: fixed;
+  /* offset-rotate: reverse; */
+  display: flex;
+  flex-direction: column;
+  width: 46px;
+  right: 7px;
+  top: 9px;
+  z-index: 10;
 }
+
+@media only screen and (min-width: 768px) {
+  .psa-video-card__share {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    position: relative;
+    width: 70%;
+  }
+  .psa-video-card__download {
+    width: 30%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .psa-video-card__share-download-div {
+    justify-content: center;
+  }
+}
+
 .psa-video-card__social-button {
   border-radius: 100%;
   border: none;
