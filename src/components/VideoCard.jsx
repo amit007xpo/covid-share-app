@@ -67,6 +67,92 @@ function MyVerticallyCenteredModal(props) {
 }
 
 
+//modal for share tab
+
+
+function ShareModal(props) {
+  console.log(locale.stepsToUploadInstagram[props.localeData])
+  const lang = props.localeData;
+  const baseClassName = "psa-video-card";
+  return (
+    <Modal
+      {...props}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">
+          {locale.shateTo[props.localeData]}
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <p>
+          <ul className={`${baseClassName}__desktop-modal-ul`}>
+             <li>
+             <FacebookShareButton url={props.fullUrl} quote={props.description} hashtags={[`covid19`, 'saveWorld']}>
+                <FacebookIcon size="35" round={true} /> share via facebook
+              </FacebookShareButton>
+              </li> 
+              <li>
+              <LinkedinShareButton url={props.fullUrl}>
+                <LinkedinIcon size="35" round={true} /> share via LinkedIn
+              </LinkedinShareButton>
+              </li> 
+              <li>
+              <TwitterShareButton url={props.fullUrl} title={props.description} hashtags={[`covid19`, 'saveWorld']}>
+                <TwitterIcon size="35" round={true} /> share via Twitter
+              </TwitterShareButton>
+              </li>
+              <li>
+              <TelegramShareButton title={props.description} url={props.fullUrl}>
+                <TelegramIcon size="35" round={true} /> share via Telegram
+              </TelegramShareButton>
+              </li>
+              <li>
+              <WhatsappShareButton url={props.fullUrl} title={props.description} separator={`:-`}>
+                <WhatsappIcon size="35" round={true} /> share via Whatsapp
+              </WhatsappShareButton>
+              </li>
+              <li>
+              <EmailShareButton url={props.fullUrl} subject={`Share awareness for covid-19`} body={props.description} separator=':-'>
+                <EmailIcon size="35" round={true} /> share via Email
+              </EmailShareButton>
+              </li>
+              <li>
+              <button className={`${baseClassName}__social-button`} onClick={() => props.setModalShow(true, 'Instagram')}>
+                <img src="/public/media/insta.png" alt="tiktok" className={`${baseClassName}__social-image`}/>
+              </button>
+               share via Instagram
+              </li>
+              <li>
+              <button className={`${baseClassName}__social-button`} onClick={() => {navigator.clipboard.writeText(fullUrl)}}>
+                <img src="/public/media/kindpng_3410172.png" alt="tiktok" className={`${baseClassName}__social-image`}/>
+              </button>
+               share via Tiktok
+              </li>
+              <li>
+              <button className={`${baseClassName}__social-button`} onClick={()=>props.downloadFile()}>
+                <img src="/public/media/save-icon.png" alt="tiktok" className={`${baseClassName}__social-image`}/>
+              </button>
+               Download video
+              </li>
+              <li>
+              <button className={`${baseClassName}__social-button`} onClick={() => {navigator.clipboard.writeText(props.fullUrl)}}>
+                <img src="/public/media/kindpng_3410172.png" alt="tiktok" className={`${baseClassName}__social-image`}/> 
+              </button>
+               Copy url
+              </li>
+          </ul>
+        </p>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button onClick={props.onHide}>Close</Button>
+      </Modal.Footer>
+    </Modal>
+  );
+}
+
 class VideoCard extends Component {
   static defaultProps = {
     shouldDisplayMenu: true,
@@ -78,7 +164,8 @@ class VideoCard extends Component {
       modalShow: false,
       socialMedia: '',
      localeData: window.location.search.split("=")[1] || 'en',
-     playing: false
+     playing: false,
+     shareModalShow: false
     }
   }
   redirectToSingleVideo = () => {
@@ -108,6 +195,10 @@ class VideoCard extends Component {
   this.setState({modalShow: value, socialMedia: media})
 }
 
+setShareModalShow = (value) => {
+  this.setState({shareModalShow: value})
+}
+
 onPlayClick = () => {
   this.setState({playing: !this.state.playing});
   var vid = document.getElementById("myVideo");
@@ -120,7 +211,7 @@ onPlayClick = () => {
     const {localeData} = this.state
     // console.log(fullUrl);
     const baseClassName = "psa-video-card";
-    const {modalShow, socialMedia} = this.state;
+    const {modalShow, socialMedia, shareModalShow} = this.state;
     // console.log(window.location.search.split("=")[1])
     // const localeData = localStorage.getItem("language") || 'en';
   //  console.log(locale);
@@ -130,7 +221,7 @@ onPlayClick = () => {
   console.log(window.screen.width)
     return (
       <div className={`${baseClassName}`}>
-        <div className={`${baseClassName}__video-div`} onClick={()=>this.onPlayClick()}>
+        <div className={`${baseClassName}__video-div`}>
 
             {
                 videoLibrary && <ResponsiveEmbed aspectRatio={window.screen.width > 648 ? "16by9":"1by1"}>
@@ -149,8 +240,9 @@ onPlayClick = () => {
             }
 
             <div className={`${baseClassName}__title-date-div`}>
-              <div onClick={()=>this.onPlayClick()}>
-                {!this.state.playing && <img src="/public/media/play.svg" alt="play"/>}
+              <div onClick={()=>this.onPlayClick()} >
+                {!this.state.playing && <img src="/public/media/play.svg" alt="play" style={{cursor: 'pointer'}}/>}
+                {this.state.playing && <p style={{fontSize: '20px', cursor: 'pointer'}}>&#9614;&#9614;</p>}
               </div>
               <div className={`${baseClassName}__name`} onClick={() => this.redirectToSingleVideo()}>
               <h1 className={`${baseClassName}__video-ui-header`}>{name}</h1>
@@ -161,7 +253,7 @@ onPlayClick = () => {
                 <div className={`${baseClassName}__desktop-share-div`}>
                   <hr className={`${baseClassName}__horizontal-line--desktop`} />
                   <div className={`${baseClassName}__share-desktop`}>
-                      <Button onClick={()=>this.downloadFile()} className={`${baseClassName}__share-desktop-text`} style={{backgroundColor: 'transparent', border: 'none', outline: 'none'}}><img src="/public/media/share-icon-white.svg"/> {locale.shareText[localeData]}</Button>
+                      <Button onClick={()=>this.setShareModalShow(true)} className={`${baseClassName}__share-desktop-text`} style={{backgroundColor: 'transparent', border: 'none', outline: 'none'}}><img src="/public/media/share-icon-white.svg"/> {locale.shareText[localeData]}</Button>
                   </div>
                 </div>
             </div>
@@ -245,6 +337,17 @@ onPlayClick = () => {
         socialMedia={this.state.socialMedia}
         baseClassName={baseClassName}
         localeData={localeData}
+      />
+      <ShareModal
+        show={shareModalShow}
+        onHide={() => this.setShareModalShow(false)}
+        socialMedia={this.state.socialMedia}
+        baseClassName={baseClassName}
+        localeData={localeData}
+        setModalShow={this.setModalShow}
+        description={description}
+        fullUrl={fullUrl}
+        downloadFile={this.downloadFile}
       />
       </div>
     );

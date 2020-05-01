@@ -75,5 +75,12 @@
         "ma": "share",
         "be": "share",
         "ta": "share"
+    },
+    "shateTo": {
+        "en": "Share to",
+        "hi": "share to",
+        "ma": "share to",
+        "be": "share to",
+        "ta": "share to"
     }
 }
