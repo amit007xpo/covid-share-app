@@ -49,8 +49,8 @@ class NavigationBar extends Component {
     );
     const {localeData} = this.state;
     return (
-    <Navbar collapseOnSelect expand="lg" sticky="top" style={{backgroundColor:'black', color: 'white'}}>
-        <Navbar.Brand href="#" onClick={this.goBackBtn} style={{color: 'black', backgroundColor: 'white', padding: '0 1rem'}}>{locale.back[localeData]}</Navbar.Brand>
+    <Navbar collapseOnSelect expand="lg" sticky="top" style={{backgroundColor:'transparent', color: 'white'}}>
+        <Navbar.Brand href="#" onClick={this.goBackBtn} style={{color: 'black', backgroundColor: 'transparent', padding: '0 1rem'}}><img src="/public/media/back-icon.svg" alt="back_img"/></Navbar.Brand>
     </Navbar>
     );
   }

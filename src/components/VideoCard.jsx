@@ -77,7 +77,8 @@ class VideoCard extends Component {
     this.state = {
       modalShow: false,
       socialMedia: '',
-     localeData: window.location.search.split("=")[1] || 'en'
+     localeData: window.location.search.split("=")[1] || 'en',
+     playing: false
     }
   }
   redirectToSingleVideo = () => {
@@ -106,6 +107,14 @@ class VideoCard extends Component {
  setModalShow = (value, media) => {
   this.setState({modalShow: value, socialMedia: media})
 }
+
+onPlayClick = () => {
+  this.setState({playing: !this.state.playing});
+  var vid = document.getElementById("myVideo");
+  if(!this.state.playing) 
+    vid.play();
+  else vid.pause();
+}
   render() {
     const { url, name, date, videoLibrary, videoUrl, fullUrl, description } = this.props;
     const {localeData} = this.state
@@ -116,29 +125,51 @@ class VideoCard extends Component {
     // const localeData = localStorage.getItem("language") || 'en';
   //  console.log(locale);
   //  console.log(localeData)
+
+
+  console.log(window.screen.width)
     return (
       <div className={`${baseClassName}`}>
-        <div className={`${baseClassName}__video-div`}>
+        <div className={`${baseClassName}__video-div`} onClick={()=>this.onPlayClick()}>
 
             {
-                videoLibrary && <ResponsiveEmbed aspectRatio="16by9">
-                    <iframe width="400" height="300" src={videoUrl}>
+                videoLibrary && <ResponsiveEmbed aspectRatio={window.screen.width > 648 ? "16by9":"1by1"}>
+                    <iframe src={videoUrl}>
                     </iframe>
                     </ResponsiveEmbed>
             }
             {
-                !videoLibrary &&  <ResponsiveEmbed aspectRatio="16by9">
-                <video controls className={`${baseClassName}__video-tag`}>
+                !videoLibrary &&  <ResponsiveEmbed aspectRatio={window.screen.width > 648 ? "16by9":"1by1"}>
+                <video controls className={`${baseClassName}__video-tag`} controls={false} id="myVideo">
                         <source src={url} type="video/mp4" media="screen and (min-device-width:401px)"/>
                         {/* <source src="movie.ogg" type="video/ogg" /> */}
                         Your browser does not support the video tag.
                     </video>
                  </ResponsiveEmbed>
             }
+
+            <div className={`${baseClassName}__title-date-div`}>
+              <div onClick={()=>this.onPlayClick()}>
+                {!this.state.playing && <img src="/public/media/play.svg" alt="play"/>}
+              </div>
+              <div className={`${baseClassName}__name`} onClick={() => this.redirectToSingleVideo()}>
+              <h1 className={`${baseClassName}__video-ui-header`}>{name}</h1>
+              </div>
+              <div className={`${baseClassName}__date`}>
+                <Moment format="dddd, MMMM D, YYYY hh:mm A" withTitle>{date}</Moment>
+                </div>
+                <div className={`${baseClassName}__desktop-share-div`}>
+                  <hr className={`${baseClassName}__horizontal-line--desktop`} />
+                  <div className={`${baseClassName}__share-desktop`}>
+                      <Button onClick={()=>this.downloadFile()} className={`${baseClassName}__share-desktop-text`} style={{backgroundColor: 'transparent', border: 'none', outline: 'none'}}><img src="/public/media/share-icon-white.svg"/> {locale.shareText[localeData]}</Button>
+                  </div>
+                </div>
+            </div>
+
         </div>
-        <div>
+        <div className={`${baseClassName}__sharing-mobile`}>
         <InputGroup className="mb-3">
-            <FormControl
+            {/* <FormControl
               placeholder={fullUrl}
               aria-label="Page Url"
               value={fullUrl}
@@ -146,10 +177,11 @@ class VideoCard extends Component {
             />
             <InputGroup.Append>
           <Button variant="outline-secondary" className={`${baseClassName}__button-share-url`} onClick={() => {navigator.clipboard.writeText(fullUrl)}} style={{color: 'white'}}>{locale.copyPageUrl[localeData]}</Button>
-            </InputGroup.Append>
+            </InputGroup.Append> */}
           </InputGroup>
+          
         </div>
-        {/* <p className={`${baseClassName}__share-text`}>Share</p> */}
+        <p className={`${baseClassName}__share-text`}>Share to</p>
         <div className={`${baseClassName}__share-download-div`}>
         <div className={`${baseClassName}__share`}>
           <FacebookShareButton url={fullUrl} quote={description} hashtags={[`covid19`, 'saveWorld']}>
@@ -183,20 +215,28 @@ class VideoCard extends Component {
             <img src="/public/media/titktok.png" alt="tiktok" className={`${baseClassName}__social-image`}/>
           </button>
         </div>
-        
-        <div className={`${baseClassName}__download`}>
+        <hr className={`${baseClassName}__horizontal-line`}/>
+        <div className={`${baseClassName}__share`}>
+          <button className={`${baseClassName}__social-button`} onClick={()=>this.downloadFile()}>
+            <img src="/public/media/save-icon.png" alt="tiktok" className={`${baseClassName}__social-image`}/>
+          </button>
+          <button className={`${baseClassName}__social-button`} onClick={() => {navigator.clipboard.writeText(fullUrl)}}>
+            <img src="/public/media/kindpng_3410172.png" alt="tiktok" className={`${baseClassName}__social-image`}/>
+          </button>
+        </div>
+        {/* <div className={`${baseClassName}__download`}>
             <Button onClick={()=>this.downloadFile()} className={`${baseClassName}__download-button`} style={{backgroundColor: 'transparent'}}><FaDownload color={"white"} text="Download"/> {locale.downloadVideo[localeData]}</Button>
+        </div> */}
         </div>
-        </div>
-        <div
+        {/* <div
           className={`${baseClassName}__name`}
           onClick={() => this.redirectToSingleVideo()}
         >
           <h3>{name}</h3>
-        </div>
-        <div className={`${baseClassName}__date`}>
+        </div> */}
+        {/* <div className={`${baseClassName}__date`}>
          <Moment format="dddd, MMMM D, YYYY hh:mm A" withTitle>{date}</Moment>
-        </div>
+        </div> */}
         
         
         <MyVerticallyCenteredModal

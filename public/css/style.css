@@ -66,7 +66,7 @@ body{
 }
 
 .psa-single-video-share {
-  background-color: #010101;
+  /* background-color: #010101; */
   /* display: flex; */
   justify-content: space-around;
   /* // height: 100vh; */
@@ -74,12 +74,14 @@ body{
   text-align: center;
   width: 100%;
   /* height: 100%; */
+  position: absolute;
+  top: 0
 }
 
 .psa-single-video-share__video-div {
     display: flex;
     justify-content: space-around;
-    padding: 1rem;
+    /* padding: 1rem; */
 }
 .psa-single-video-share__loader-div {
   background-color: #1e1e2f;
@@ -91,7 +93,7 @@ body{
 }
 
 .psa-video-card {
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -102,7 +104,21 @@ body{
     width: 100%;
     display: flex;
     justify-content: center;
+    position: relative;
 }
+.psa-video-card__title-date-div {
+  bottom: 34%;
+  position: fixed;
+}
+
+.psa-video-card__video-ui-header{
+  font-family: Montserrat, sans-serif;
+  color: #f8f8f8;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+}
+
 .psa-video-card__name {
   color: white;
   cursor: pointer;
@@ -127,27 +143,36 @@ body{
 }
 .psa-video-card__share-download-div {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   width: 100%;
   justify-content: center;
 }
 
+.psa-video-card__horizontal-line {
+  border: 0;
+  clear: both;
+  display: block;
+  width: 80%;
+  background-color: rgba(1, 1, 1, 0.1);
+  height: 1px;
+}
 .psa-video-card__share-text {
-  color: white;
-  font-size: 1.3rem;
+  color: black;
+  /* font-size: 1.3rem; */
+  margin-bottom: 12px;
+  font-size: 13px;
 }
 
 .psa-video-card__share {
-  display: flex;
-  justify-content: center;
+  /* display: flex; */
+  /* justify-content: center; */
   width: 100%;
-  position: fixed;
+  /* position: fixed; */
   /* offset-rotate: reverse; */
-  display: flex;
-  flex-direction: column;
-  width: 46px;
-  right: 7px;
-  top: 9px;
+  /* flex-direction: row; */
+  /* width: 46px; */
+  /* right: 7px; */
+  /* top: 9px; */
   z-index: 10;
 }
 
@@ -199,7 +224,9 @@ body{
 }
 
 .psa-video-card__date {
-  color: white;
+  font-family: Roboto, sans-serif;
+  color: #f8f8f8;
+  font-weight: 400;
   display: flex;
   font-size: 1rem;
   justify-content: center;
@@ -245,6 +272,14 @@ body{
   display: none !important;
 }
 /* Medium devices (landscape tablets, 768px and up) */
+
+.psa-video-card__sharing-mobile {
+  margin-top: -30px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background-color: white;
+  z-index: 10;
+}
 @media only screen and (min-width: 768px) {
   .psa-video-card__whatsapp--mobile {
     display: none !important;
@@ -264,4 +299,56 @@ body{
 
 .bg-dark{
   background-color: black !important;
+}
+
+.psa-video-card__desktop-share-div {
+  display: none;
+}
+/* mobile design */
+@media only screen and (min-width: 768px) {
+  .psa-video-card__sharing-mobile {
+    display: none;
+  }
+
+  .psa-video-card__share-text{
+    display: none;
+  }
+
+  .psa-video-card__share-download-div {
+    display: none;
+  }
+  .psa-single-video-share {
+    height: 100%;
+    width: 100%;
+  }
+  .psa-single-video-share__video-div {
+    height: 100%;
+    width: 100%;
+  }
+  .psa-video-card {
+    height: 100%;
+    width: 100%;
+  }
+  .psa-video-card__video-div {
+    height: 100%;
+    width: 100%;
+  }
+  .psa-video-card__desktop-share-div {
+    display: block;
+  }
+
+  .psa-video-card__horizontal-line--desktop {
+    border: 0;
+    clear: both;
+    display: block;
+    width: 80%;
+    background-color: white;
+    height: 1px;
+  }
+
+.psa-video-card__share-desktop-text {
+  outline: none;
+  border: none;
+}
+
 }

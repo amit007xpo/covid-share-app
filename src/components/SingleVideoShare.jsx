@@ -51,9 +51,9 @@ class SingleVideoShare extends Component {
 
     const { isLoading } = this.props;
     const {video, fullUrl, videoLibrary} = this.props.data;
-    console.log(video)
-    console.log(fullUrl)
-    console.log(videoLibrary)
+    // console.log(video)
+    // console.log(fullUrl)
+    // console.log(videoLibrary)
     
     if (isLoading) {
       // TODO : User might have no videos, to be fixed
