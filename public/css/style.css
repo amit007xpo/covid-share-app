@@ -107,7 +107,7 @@ body{
     position: relative;
 }
 .psa-video-card__title-date-div {
-  bottom: 34%;
+  bottom: 50%;
   position: fixed;
 }
 
