@@ -221,16 +221,16 @@ onPlayClick = () => {
   console.log(window.screen.width)
     return (
       <div className={`${baseClassName}`}>
+        <div className={`${baseClassName}__overlay`}></div>
         <div className={`${baseClassName}__video-div`}>
-
             {
-                videoLibrary && <ResponsiveEmbed aspectRatio={window.screen.width > 648 ? "16by9":"1by1"}>
+                videoLibrary && <ResponsiveEmbed aspectRatio={"1by1"}>
                     <iframe src={videoUrl}>
                     </iframe>
                     </ResponsiveEmbed>
             }
             {
-                !videoLibrary &&  <ResponsiveEmbed aspectRatio={window.screen.width > 648 ? "16by9":"1by1"}>
+                !videoLibrary &&  <ResponsiveEmbed aspectRatio={window.screen.width > 648 ? "21by9" : "1by1"}>
                 <video controls className={`${baseClassName}__video-tag`} controls={false} id="myVideo">
                         <source src={url} type="video/mp4" media="screen and (min-device-width:401px)"/>
                         {/* <source src="movie.ogg" type="video/ogg" /> */}

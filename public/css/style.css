@@ -327,21 +327,27 @@ body{
     display: none;
   }
   .psa-single-video-share {
-    height: 100%;
+    /* height: 100%; */
     width: 100%;
   }
   .psa-single-video-share__video-div {
-    height: 100%;
+    /* height: 100%; */
     width: 100%;
   }
   .psa-video-card {
-    height: 100%;
-    width: 100%;
+    /* height: 100%;
+    width: 100%; */
   }
   .psa-video-card__video-div {
     height: 100%;
     width: 100%;
+    /* max-width: 800px; */
   }
+  .psa-video-card__video-tag {
+    object-fit: contain;
+    /* width: 100%; */
+  }
+
   .psa-video-card__desktop-share-div {
     display: block;
   }
@@ -358,6 +364,18 @@ body{
 .psa-video-card__share-desktop-text {
   outline: none;
   border: none;
+}
+
+.psa-video-card__title-date-div {
+  bottom: 50%;
+  /* position: fixed; */
+}
+
+.psa-video-card__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: hsla(0, 0%, 97.3%, 0.6);
 }
 
 }
