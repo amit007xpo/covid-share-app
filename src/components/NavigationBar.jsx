@@ -10,7 +10,7 @@ class NavigationBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      localeData: localStorage.getItem("language") || 'en'
+      localeData: window.location.search.split("=")[1] || 'en'
     };
   }
 

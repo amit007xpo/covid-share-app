@@ -77,7 +77,7 @@ class VideoCard extends Component {
     this.state = {
       modalShow: false,
       socialMedia: '',
-     localeData: localStorage.getItem("language") || 'en'
+     localeData: window.location.search.split("=")[1] || 'en'
     }
   }
   redirectToSingleVideo = () => {
@@ -109,13 +109,13 @@ class VideoCard extends Component {
   render() {
     const { url, name, date, videoLibrary, videoUrl, fullUrl, description } = this.props;
     const {localeData} = this.state
-    console.log(fullUrl);
+    // console.log(fullUrl);
     const baseClassName = "psa-video-card";
     const {modalShow, socialMedia} = this.state;
-
+    // console.log(window.location.search.split("=")[1])
     // const localeData = localStorage.getItem("language") || 'en';
-   console.log(locale);
-   console.log(localeData)
+  //  console.log(locale);
+  //  console.log(localeData)
     return (
       <div className={`${baseClassName}`}>
         <div className={`${baseClassName}__video-div`}>
