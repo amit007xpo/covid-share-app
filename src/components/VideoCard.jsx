@@ -83,7 +83,7 @@ function ShareModal(props) {
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          {locale.shateTo[props.localeData]}
+          {locale.shareTo[props.localeData]}
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
@@ -91,57 +91,57 @@ function ShareModal(props) {
           <ul className={`${baseClassName}__desktop-modal-ul`}>
              <li>
              <FacebookShareButton url={props.fullUrl} quote={props.description} hashtags={[`covid19`, 'saveWorld']}>
-                <FacebookIcon size="35" round={true} /> share via facebook
+                <FacebookIcon size="35" round={true} /> {locale.shareWithFacebook[props.localeData]}
               </FacebookShareButton>
               </li> 
               <li>
               <LinkedinShareButton url={props.fullUrl}>
-                <LinkedinIcon size="35" round={true} /> share via LinkedIn
+                <LinkedinIcon size="35" round={true} /> {locale.shareWithLinkedIn[props.localeData]}
               </LinkedinShareButton>
               </li> 
               <li>
               <TwitterShareButton url={props.fullUrl} title={props.description} hashtags={[`covid19`, 'saveWorld']}>
-                <TwitterIcon size="35" round={true} /> share via Twitter
+                <TwitterIcon size="35" round={true} /> {locale.shateWithTwitter[props.localeData]}
               </TwitterShareButton>
               </li>
               <li>
               <TelegramShareButton title={props.description} url={props.fullUrl}>
-                <TelegramIcon size="35" round={true} /> share via Telegram
+                <TelegramIcon size="35" round={true} /> {locale.shateWithTelegram[props.localeData]}
               </TelegramShareButton>
               </li>
               <li>
               <WhatsappShareButton url={props.fullUrl} title={props.description} separator={`:-`}>
-                <WhatsappIcon size="35" round={true} /> share via Whatsapp
+                <WhatsappIcon size="35" round={true} /> {locale.shateWithWhatsapp[props.localeData]}
               </WhatsappShareButton>
               </li>
               <li>
               <EmailShareButton url={props.fullUrl} subject={`Share awareness for covid-19`} body={props.description} separator=':-'>
-                <EmailIcon size="35" round={true} /> share via Email
+                <EmailIcon size="35" round={true} /> {locale.shateWithEmail[props.localeData]}
               </EmailShareButton>
               </li>
               <li>
               <button className={`${baseClassName}__social-button`} onClick={() => props.setModalShow(true, 'Instagram')}>
                 <img src="/public/media/insta.png" alt="tiktok" className={`${baseClassName}__social-image`}/>
               </button>
-               share via Instagram
+              {locale.shateWithInstagram[props.localeData]}
               </li>
               <li>
               <button className={`${baseClassName}__social-button`} onClick={() => {navigator.clipboard.writeText(fullUrl)}}>
                 <img src="/public/media/kindpng_3410172.png" alt="tiktok" className={`${baseClassName}__social-image`}/>
               </button>
-               share via Tiktok
+              {locale.shateWithTiktok[props.localeData]}
               </li>
               <li>
               <button className={`${baseClassName}__social-button`} onClick={()=>props.downloadFile()}>
                 <img src="/public/media/save-icon.png" alt="tiktok" className={`${baseClassName}__social-image`}/>
               </button>
-               Download video
+              {locale.downloadVideo[props.localeData]}
               </li>
               <li>
               <button className={`${baseClassName}__social-button`} onClick={() => {navigator.clipboard.writeText(props.fullUrl)}}>
                 <img src="/public/media/kindpng_3410172.png" alt="tiktok" className={`${baseClassName}__social-image`}/> 
               </button>
-               Copy url
+                {locale.copyPageUrl[props.localeData]}
               </li>
           </ul>
         </p>
@@ -273,7 +273,7 @@ onPlayClick = () => {
           </InputGroup>
           
         </div>
-        <p className={`${baseClassName}__share-text`}>Share to</p>
+          <p className={`${baseClassName}__share-text`}>{locale.shareTo[localeData]}</p>
         <div className={`${baseClassName}__share-download-div`}>
         <div className={`${baseClassName}__share`}>
           <FacebookShareButton url={fullUrl} quote={description} hashtags={[`covid19`, 'saveWorld']}>
