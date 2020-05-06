@@ -5,7 +5,7 @@ function DefaultLayout(props) {
   return (
     <html>
       <head>
-       <title>Covid-19</title>
+       <title>Record KaroNa</title>
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <meta name="theme-color" content="#000000" />
         <meta property="fb:app_id" content="1382573961914383" />

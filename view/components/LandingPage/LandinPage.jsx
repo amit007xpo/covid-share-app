@@ -81,7 +81,7 @@ class LandingPage extends React.Component {
         <div className={`${baseClassName}`} style={mystyle}>
             {/* <Helmet>
               <meta charSet="utf-8" />
-              <title>Covid-19</title>
+              <title>Record KaroNa</title>
               <meta name="description" content="Help to spread awareness for covid-19" />
               <link rel="canonical" href="http://mysite.com/example" />
   
