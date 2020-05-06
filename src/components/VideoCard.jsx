@@ -126,8 +126,8 @@ function ShareModal(props) {
               {locale.shateWithInstagram[props.localeData]}
               </li>
               <li>
-              <button className={`${baseClassName}__social-button`} onClick={() => {navigator.clipboard.writeText(fullUrl)}}>
-                <img src="/public/media/kindpng_3410172.png" alt="tiktok" className={`${baseClassName}__social-image`}/>
+              <button className={`${baseClassName}__social-button`} onClick={() => props.setModalShow(true, 'Tiktok')}>
+                <img src="/public/media/titktok.png" alt="tiktok" className={`${baseClassName}__social-image`}/>
               </button>
               {locale.shateWithTiktok[props.localeData]}
               </li>
