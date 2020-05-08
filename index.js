@@ -29,7 +29,7 @@ import ssr from "./src/routes/ssr";
 
 app.get('/', function (req, res) {
 
-    res.render(__dirname+ '/view/components/Html', { name: 'John', data: {name: 'amit'} });
+  res.render(__dirname+ '/view/components/SingleVideoShare/index', { video: {}, fullUrl: (req.protocol + '://' + req.get('host') + req.originalUrl), videoLibrary: false });
   });
 
   app.get('/ping', function (req, res) {

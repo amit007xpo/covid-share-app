@@ -54,7 +54,7 @@ function MyVerticallyCenteredModal(props) {
               </li> 
               <li>
               <h6>{locale.uploadTheVideo[props.localeData]}</h6>
-                 <Image src={props.socialMedia === 'TikTok' ? "/public/media/titktok.jpg" : "/public/media/instagram.jpg"} alt="social media" className={`${props.baseClassName}__social-media`} fluid />
+                 <Image src={props.socialMedia === 'TikTok' ? "/public/media/titktok.JPG" : "/public/media/instagram.jpg"} alt="social media" className={`${props.baseClassName}__social-media`} fluid />
               </li>
           </ol>
         </p>
@@ -126,7 +126,7 @@ function ShareModal(props) {
               {locale.shateWithInstagram[props.localeData]}
               </li>
               <li>
-              <button className={`${baseClassName}__social-button`} onClick={() => props.setModalShow(true, 'Tiktok')}>
+              <button className={`${baseClassName}__social-button`} onClick={() => props.setModalShow(true, 'TikTok')}>
                 <img src="/public/media/titktok.png" alt="tiktok" className={`${baseClassName}__social-image`}/>
               </button>
               {locale.shateWithTiktok[props.localeData]}

@@ -5,7 +5,6 @@ import App from "../components/app";
 import React from "react";
 import { renderToString } from "react-dom/server";
 import hbs from "handlebars";
-import LandingPage from '../../view/components/LandingPage';
 
 const router = express.Router();
 

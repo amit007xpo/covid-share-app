@@ -59,8 +59,7 @@ function DefaultLayout(props) {
         />
       </head>
       <body>
-        {/* {props.children} */}
-          <div id="reactele" data-react= {JSON.stringify(dataToSend)}></div>
+        <div id="reactele" data-react= {JSON.stringify(dataToSend)}></div>
         <script src="/app.js" charSet="utf-8"></script>
         <script src="/vendor.js" charSet="utf-8"></script>
       </body>
