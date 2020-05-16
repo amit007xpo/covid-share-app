@@ -224,14 +224,14 @@ onPlayClick = () => {
         <div className={`${baseClassName}__overlay`}></div>
         <div className={`${baseClassName}__video-div`}>
             {
-                videoLibrary && <ResponsiveEmbed aspectRatio={window.screen.width > 648 ? "4by3" : "1by1"}>
+                videoLibrary && <ResponsiveEmbed aspectRatio={window.screen.width > 648 ? "4by3" : "1by1"} style={{objectFit: 'contain'}}>
                     <iframe src={videoUrl}>
                     </iframe>
                     </ResponsiveEmbed>
             }
             {
                 !videoLibrary &&  <ResponsiveEmbed aspectRatio={window.screen.width > 648 ? "4by3" : "1by1"}>
-                <video controls className={`${baseClassName}__video-tag`} controls={false} id="myVideo">
+                <video controls className={`${baseClassName}__video-tag`} controls={false} id="myVideo" style={{objectFit: 'contain'}}>
                         <source src={url} type="video/mp4" media="screen and (min-device-width:401px)"/>
                         {/* <source src="movie.ogg" type="video/ogg" /> */}
                         Your browser does not support the video tag.
