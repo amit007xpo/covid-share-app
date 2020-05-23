@@ -27,7 +27,7 @@ import locale from "../localize.json";
 
 
 function MyVerticallyCenteredModal(props) {
-  console.log(locale.stepsToUploadInstagram[props.localeData])
+  // console.log(locale.stepsToUploadInstagram[props.localeData])
   const lang = props.localeData;
   return (
     <Modal
@@ -71,7 +71,7 @@ function MyVerticallyCenteredModal(props) {
 
 
 function ShareModal(props) {
-  console.log(locale.stepsToUploadInstagram[props.localeData])
+  // console.log(locale.stepsToUploadInstagram[props.localeData])
   const lang = props.localeData;
   const baseClassName = "psa-video-card";
   return (
@@ -119,26 +119,26 @@ function ShareModal(props) {
                 <EmailIcon size="35" round={true} /> {locale.shateWithEmail[props.localeData]}
               </EmailShareButton>
               </li>
-              <li>
-              <button className={`${baseClassName}__social-button`} onClick={() => props.setModalShow(true, 'Instagram')}>
+              <li onClick={() => props.setModalShow(true, 'Instagram')}>
+              <button className={`${baseClassName}__social-button`}>
                 <img src="/public/media/insta.png" alt="tiktok" className={`${baseClassName}__social-image`}/>
               </button>
               {locale.shateWithInstagram[props.localeData]}
               </li>
-              <li>
-              <button className={`${baseClassName}__social-button`} onClick={() => props.setModalShow(true, 'TikTok')}>
+              <li onClick={() => props.setModalShow(true, 'TikTok')}>
+              <button className={`${baseClassName}__social-button`}>
                 <img src="/public/media/titktok.png" alt="tiktok" className={`${baseClassName}__social-image`}/>
               </button>
               {locale.shateWithTiktok[props.localeData]}
               </li>
-              <li>
-              <button className={`${baseClassName}__social-button`} onClick={()=>props.downloadFile()}>
+              <li onClick={()=>props.downloadFile()}>
+              <button className={`${baseClassName}__social-button`}>
                 <img src="/public/media/save-icon.png" alt="tiktok" className={`${baseClassName}__social-image`}/>
               </button>
               {locale.downloadVideo[props.localeData]}
               </li>
-              <li>
-              <button className={`${baseClassName}__social-button`} onClick={() => {navigator.clipboard.writeText(props.fullUrl)}}>
+              <li onClick={() => {navigator.clipboard.writeText(props.fullUrl)}}>
+              <button className={`${baseClassName}__social-button`}>
                 <img src="/public/media/kindpng_3410172.png" alt="tiktok" className={`${baseClassName}__social-image`}/> 
               </button>
                 {locale.copyPageUrl[props.localeData]}
@@ -165,7 +165,8 @@ class VideoCard extends Component {
       socialMedia: '',
      localeData: window.location.search.split("=")[1] || 'en',
      playing: false,
-     shareModalShow: false
+     shareModalShow: false,
+     fadeout: false
     }
   }
   redirectToSingleVideo = () => {
@@ -206,21 +207,43 @@ onPlayClick = () => {
     vid.play();
   else vid.pause();
 }
+
+onMouseMoveEvent = () => {
+
+  let call = this;
+  this.setState({fadeout: false})
+clearTimeout(this.state.timer);
+this.state.timer=setTimeout(function(){
+    call.onFadeOut()
+  }, 3000);
+
+}
+
+onFadeOut = () => {
+  if(this.state.playing){
+    this.setState({fadeout: true})
+  }
+  // let i =0;
+  // for(let i =100; i>=0; i--){
+  //   layouverDiv.style.opacity = i/100;
+  // }
+  // layouverDiv.style.display="none";
+}
+
   render() {
     const { url, name, date, videoLibrary, videoUrl, fullUrl, description } = this.props;
-    const {localeData} = this.state
+    const {localeData, fadeout} = this.state
     // console.log(fullUrl);
     const baseClassName = "psa-video-card";
     const {modalShow, socialMedia, shareModalShow} = this.state;
-    // console.log(window.location.search.split("=")[1])
-    // const localeData = localStorage.getItem("language") || 'en';
-  //  console.log(locale);
-  //  console.log(localeData)
+    let layoverClass = [`${baseClassName}__title-date-div`]
+    if(fadeout) layoverClass.push('fade-out');
+    else {
+      layoverClass = [`${baseClassName}__title-date-div`]
+    }
 
-
-  console.log(window.screen.width)
     return (
-      <div className={`${baseClassName}`}>
+      <div className={`${baseClassName}`} onPointerMove={this.onMouseMoveEvent}>
         <div className={`${baseClassName}__overlay`}></div>
         <div className={`${baseClassName}__video-div`}>
             {
@@ -239,7 +262,7 @@ onPlayClick = () => {
                  </ResponsiveEmbed>
             }
 
-            <div className={`${baseClassName}__title-date-div`}>
+            <div className={layoverClass.join(' ')}>
               <div onClick={()=>this.onPlayClick()} >
                 {!this.state.playing && <img src="/public/media/play.svg" alt="play" style={{cursor: 'pointer'}}/>}
                 {this.state.playing && <p style={{fontSize: '20px', cursor: 'pointer'}}>&#9614;&#9614;</p>}
